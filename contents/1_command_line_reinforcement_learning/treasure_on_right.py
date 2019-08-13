@@ -27,7 +27,7 @@ def build_q_table(n_states, actions):
         np.zeros((n_states, len(actions))),     # q_table initial values
         columns=actions,    # actions's name
     )
-    # print(table)    # show table
+    print(table)    # show table
     return table
 
 
@@ -78,8 +78,8 @@ def rl():
     # main part of RL loop
     q_table = build_q_table(N_STATES, ACTIONS)
     for episode in range(MAX_EPISODES):
-        step_counter = 0
-        S = 0
+        step_counter = 0 #统计走了多少步
+        S = 0 #初始化状态为0
         is_terminated = False
         update_env(S, episode, step_counter)
         while not is_terminated:
@@ -100,6 +100,7 @@ def rl():
             step_counter += 1
     return q_table
 
+print("__name__ = ",__name__)
 
 if __name__ == "__main__":
     q_table = rl()

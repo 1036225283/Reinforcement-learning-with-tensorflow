@@ -7,8 +7,8 @@ You will see the sarsa is more coward when punishment is close because it cares 
 while q learning is more brave because it only cares about maximum behaviour.
 """
 
-from maze_env import Maze
-from RL_brain import SarsaLambdaTable
+from contents.Sarsa_maze.maze_env import Maze
+from contents.Sarsa_maze.RL_brain import SarsaTable
 
 
 def update():
@@ -18,9 +18,6 @@ def update():
 
         # RL choose action based on observation
         action = RL.choose_action(str(observation))
-
-        # initial all zero eligibility trace
-        RL.eligibility_trace *= 0
 
         while True:
             # fresh env
@@ -49,7 +46,7 @@ def update():
 
 if __name__ == "__main__":
     env = Maze()
-    RL = SarsaLambdaTable(actions=list(range(env.n_actions)))
+    RL = SarsaTable(actions=list(range(env.n_actions)))
 
     env.after(100, update)
     env.mainloop()

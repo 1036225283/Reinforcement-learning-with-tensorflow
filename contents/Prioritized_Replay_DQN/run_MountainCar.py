@@ -10,7 +10,7 @@ gym: 0.8.0
 
 
 import gym
-from RL_brain import DQNPrioritizedReplay
+from contents.Prioritized_Replay_DQN.RL_brain import DQNPrioritizedReplay
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
